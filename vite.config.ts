@@ -15,8 +15,7 @@ export default defineConfig({
     vue(),
     libInjectCss(),
     dts({
-      tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
-      outDir: 'dist/types'
+      tsconfigPath: resolve(__dirname, "tsconfig.lib.json")
     })
   ],
   css: {
@@ -62,32 +61,7 @@ export default defineConfig({
       ),
       output: {
         assetFileNames: 'assets/[name][extname]',
-        entryFileNames: '[name].js',
-        chunkFileNames: chunkInfo => {
-          console.log(chunkInfo)
-          /**
-           * chunkInfo {
-           *   moduleIds: [
-           *     '/Users/<user>/Desktop/geist-components/lib/components/Grid/GridCell.vue?vue&type=script&setup=true&lang.ts'
-           *   ]
-           * }
-           */
-          const moduleId = chunkInfo.moduleIds.find(moduleId => moduleId.includes('lib'))!
-          const path = moduleId.split('/lib/')[1]
-
-          // this is for cases where there is a chunk at the root
-          // '/Users/<user>/Desktop/geist-components/lib/foo.module.css'
-          const folder =
-            path.includes('/')
-              ? path.split('/')[0]
-              : null
-
-          if (folder) {
-            return `${folder}/[name].js`
-          }
-
-          return '[name].js'
-        }
+        entryFileNames: '[name].js'
       }
     }
   }

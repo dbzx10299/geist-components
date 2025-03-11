@@ -9,7 +9,7 @@
   "exports": {
     "./components": {
       "import": "./dist/components/main.js",
-      "types": "./dist/types/lib/components/main.d.ts"
+      "types": "./dist/lib/components/main.d.ts"
     }
   },
   "sideEffects": [
