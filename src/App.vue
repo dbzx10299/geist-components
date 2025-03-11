@@ -3,7 +3,7 @@
 // https://nodejs.org/api/packages.html#packages_self_referencing_a_package_using_its_name
 import { Text, Grid } from 'geistjs/components'
 
-// import { Text, Grid } from '../lib/main.ts'
+// import { Text, Grid } from '../lib/components/main.ts'
 </script>
 
 <template>
