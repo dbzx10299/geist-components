@@ -1,0 +1,39 @@
+{
+  "name": "geistjs",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./components": {
+      "import": "./dist/components/main.js",
+      "types": "./dist/types/lib/components/main.d.ts"
+    }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b ./tsconfig.lib.json && vite build",
+    "preview": "vite preview",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "glob": "^11.0.0",
+    "postcss-media-minmax": "^5.0.0",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-lib-inject-css": "^2.1.1",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.0"
+  }
+}

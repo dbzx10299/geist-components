@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  padding: 12px;
+  background: pink;
+}
+
+.cell {
+  padding: 12px;
+  background: #ccc;
+}
