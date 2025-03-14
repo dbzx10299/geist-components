@@ -6,7 +6,7 @@ import { relative, extname, resolve, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto'
 import dts from 'vite-plugin-dts'
-// @ts-ignore
+// @ts-expect-error missing types
 import postcssMediaMinMax from 'postcss-media-minmax'
 
 // https://vite.dev/config/
