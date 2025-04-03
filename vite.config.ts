@@ -1,13 +1,17 @@
+// import { relative, extname, resolve, basename, dirname } from 'node:path';
+import { relative, extname, basename } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import { globSync } from 'glob'
-import { relative, extname, resolve, basename } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { createHash } from 'node:crypto'
 import dts from 'vite-plugin-dts'
 // @ts-expect-error missing types
 import postcssMediaMinMax from 'postcss-media-minmax'
+
+// replace with fileURLToPath
+// const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -15,7 +19,7 @@ export default defineConfig({
     vue(),
     libInjectCss(),
     dts({
-      tsconfigPath: resolve(__dirname, "tsconfig.lib.json")
+      tsconfigPath: fileURLToPath(new URL('tsconfig.lib.json', import.meta.url))
     })
   ],
   css: {
@@ -43,7 +47,7 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, 'lib/components/main.ts'),
+      entry: fileURLToPath(new URL('lib/components/main.ts', import.meta.url)),
       formats: ['es']
     },
     rollupOptions: {
